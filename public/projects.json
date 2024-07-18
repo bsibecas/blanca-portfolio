@@ -1,44 +1,156 @@
 [
     {
-      "imageUrl": "ShareToGo-Presentation.png",
+      "id": "project-1",
+      "imageUrl": "ShareToGo/ShareToGo-Presentation.png",
       "projectName": "SHARE TO GO",
       "projectDescription": "An app designed to facilitate car sharing for daily routes, promoting environmentally friendly travel.",
-      "projectDate": "2022-ACTUAL"
+      "projectDate": "2022-ACTUAL",
+      "introductionTitle": "What is SharetoGo about?",
+      "projectIntroduction": "Sharing moves us, that's why at SharetoGo we have set out to be the logical solution and the real tool to carry out carpooling. For many months, we have thought, designed, and programmed our entire application to connect people who have empty seats in their cars with others heading to the same or similar destinations through location-based matching.",
+      "projectInfoTitle": "The team",
+      "projectInfo": "We are a group of people who work ambitiously day after day to achieve a change in mobility habits among the public. For us, keeping the team united and connected has always been a cornerstone and priority to ensure that the initial 'idea' materializes into a robust mobile application project. This is just the starting grid. Together, we will achieve it.",
+      "projectImage": "ShareToGo/ShareToGoProject.png",
+      "usageTitle": "Your daily carpooling application",
+      "usageProject": "The app that makes carpooling easier and accessible for everyone. 'For you, for everyone, share'.",
+      "Tools": [
+        "Next js",
+        "React Native",
+        "Tailwind",
+        "FireBase",
+        "Stream Chat"
+      ],
+      "urlTitle": "Web:",
+      "urlReference":"ShareToGo",
+      "url": "https://www.sharetogo.org"
     },
     {
-      "imageUrl": "./WorkInProgress-Presentation.png",
+      "id": "project-2",
+      "imageUrl": "./WorkInProgress/WorkInProgress-Presentation.png",
       "projectName": "WORK IN PROGRESS",
       "projectDescription": "A 2D game that combines time and resource management with a touch of strategy, where you play as a new worker in a jewelry store.",
-      "projectDate": "2024"
+      "projectDate": "2024",
+      "introductionTitle": "What is Work In Progresss about?",
+      "projectIntroduction": "Our final project is a 2D gamified simulation and survival game. The player starts a job in a jewelry workshop, processing customer orders while managing work stress and dealing with a strict boss. The game combines strategy and quick decision-making to avoid being fired, creating a stressful work environment. Pixel art visuals and auditory elements enhance the experience.",
+      "projectInfoTitle": "The Game",
+      "projectInfo": "Work in Progress is a 2D simulation and survival game highlighting work stress and burnout. The player takes on the role of a jewelry store worker balancing workshop tasks and customer service. The game is based on real experiences and aims to illustrate occupational risks through gamification. The player must manage anxiety and stamina to satisfy the boss and customers, unlocking more crafting options as they gain experience.",
+      "projectImage": "/WorkInProgress/WorkInProgressProject.png",
+      "usageTitle": "Controls",
+      "usageProject": "The player can use the arrow or WASD keys to move around the scene. To interact with the work places or characters as the clients you can use the left click of the mouse. ",
+      "videoUrl": "./WorkInProgress/WorkInProgressVideo.mp4",
+      "imageExtra1": "/WorkInProgress/workInProgressImageExtra1.png",
+      "imageExtra2": "/WorkInProgress/workInProgressImageExtra2.png",
+      "Tools": [
+        "Unity",
+        "C#",
+        "Visual Studio",
+        "Krita"
+      ]
     },
     {
-      "imageUrl": "Area-Presentation.png",
+      "id": "project-3",
+      "imageUrl": "/Area/Area-Presentation.png",
       "projectName": "AREA",
       "projectDescription": "In this project the user can create actions and reactions in an IFTTT manner, He will be able to do it in multiple services as Discord, Reddit...",
-      "projectDate": "2023"
+      "projectDate": "2023",
+      "introductionTitle": "What is AREA about?",
+      "projectIntroduction": "The AREA project involves developing a comprehensive software suite designed to function similarly to IFTTT or Zapier. This software suite is divided into three main components. The Server will be the core component to implement the features and handle the backend. The web application will allow users to access and use the app through a web browser, providing and the mobile application This will enable users to access and use the app from their smartphones.",
+      "projectInfoTitle": "My project",
+      "projectInfo": "In my implementation, Sokoban is developed without a graphical interface, relying exclusively on ASCII characters to portray elements. This approach not only pays homage to the game's original simplicity but also presented unique design challenges that required innovative solutions. The map is restricted to the characters SPACE (an empty space where you can move), ‘#’ (walls or barriers), ‘X’ (boxes), ‘O’ (storage locations), and ‘P’ (player position).",
+      "projectImage": "/Area/AreaProject.png",
+      "usageTitle": "Usage",
+      "usageProject": "The player can use the arrow keys to move around the map. The space bar resets the current level, offering players a chance to strategize again. ",
+      "imageExtra1": "/Area/areaImageExtra1.png",
+      "imageExtra2": "/Area/areaImageExtra2.png",
+      "Tools": [
+        "Vue js",
+        "TypeScript",
+        "ionic library",
+        "Figma",
+        "Dockerfile",
+        "MySQL",
+        "Encrypted Server bcrypt",
+        "authStore"
+      ]
     },
     {
-      "imageUrl": "Algorithmic-Presentation.png",
+      "id": "project-4",
+      "imageUrl": "/Algorithmic/Algorithmic-Presentation.png",
       "projectName": "ALGORITHMIC",
       "projectDescription": "Projects based on applied calculation, optimization, statistics, cyber security, graphics and project management. (Python, Problem solving)",
-      "projectDate": "2020-2023"
+      "projectDate": "2020-2023",
+      "introductionTitle": "Mathematical Projects",
+      "projectIntroduction": "These projects utilize various mathematical tools such as polynomials, function curves, sequences, derivatives, integration, and more. Each project explores unique mathematical concepts and computational techniques, providing practical applications and insights into different areas of mathematics.",
+      "projectInfoTitle": "What they are about",
+      "projectInfo": "Each project offers a practical understanding of mathematical principles and computational methods, providing insights into diverse applications ranging from physics simulations and population dynamics to signal processing and numerical analysis.",
+      "usageTitle": "Some of the projects",
+      "usageProject": "101pingpong - calculating the trajectory, 104intersection - computing intersections of geometric shapes in three-dimensional space, 110borwein - computing and analyzing mathematical series, etc... ",
+      "Tools": [
+        "Python",
+        "math library",
+        "sys library"
+      ],
+      "urlTitle": "Github link:",
+      "urlReference":"GitHub - Math",
+      "url": "https://github.com/bsibecas/Math"
     },
     {
-      "imageUrl": "./Matchstick-Presentation.png",
+      "id": "project-5",
+      "imageUrl": "./Matchstick/Matchstick-Presentation.png",
+      "projectImage": "./Matchstick/MatchstickProject.png",
       "projectName": "MATCHSTICK",
       "projectDescription": "Created a little game with an IA that wins almost every time in order to play against it. (C, Algorithm, Problem solving)",
-      "projectDate": "2021"
+      "projectDate": "2021",
+      "introductionTitle": "What is Matchstick about?",
+      "projectIntroduction": "The Matchsticks Game is inspired by a well-known strategy game involving matchsticks. In this game, a certain number of matchstick lines are arranged. Players take turns removing one or more matchsticks from a single line. The player forced to take the last matchstick loses the game.",
+      "projectInfoTitle": "Goal",
+      "projectInfo": "The goal of this project is to develop a program that allows users to play against a computer opponent. The basic version generates a game board with 'n' lines of matchsticks (where n is between 1 and 100). It does not have any graphical interface and will be displayed on the computer terminal.",
+      "usageTitle": "How to play",
+      "usageProject": "During your turn, the game will prompt you to select a line and specify the number of matches to remove. You must input a valid choice within the limits set at the start of the game. The game will continue prompting you until you make a valid selection. For instance, you cannot remove matches from an empty line.",
+      "videoUrl":"./Matchstick/MatchstickVideo.mp4",
+      "Tools": [
+        "C",
+        "ncurses library"
+      ]
     },
     {
-      "imageUrl": "Sokoban-Presentation.png",
+      "id": "project-6",
+      "imageUrl": "Sokoban/Sokoban-Presentation.png",
+      "projectImage": "Sokoban/SokobanProject.png",
       "projectName": "SOKOBAN",
       "projectDescription": "This project is a game done without any graphic library. Sokoban japonese is a game where the goal is to push the boxes into their correct position.",
-      "projectDate": "2021"
+      "projectDate": "2021",
+      "introductionTitle": "What is Sokoban about?",
+      "projectIntroduction": "Sokoban is a classic puzzle game originating from Japan, created by Hiroyuki Imabayashi in 1980. The name 'Sokoban' translates to 'warehouse keeper' in Japanese. The objective of the game is to push boxes located in a warehouse to their designated positions. Boxes can only be pushed, not pulled, and only one box can be moved at a time.",
+      "projectInfoTitle": "Implementation",
+      "projectInfo": "This project is a faithful implementation of Sokoban developed entirely without a graphical library. It utilizes ASCII characters to represent game elements, staying true to the game's original simplicity while presenting unique design challenges that required innovative solutions. The game map features 'SPACE' (empty space for movement), '#' (walls or barriers), 'X' (boxes), 'O' (storage locations), and 'P' (player position).",
+      "usageTitle": "Controls",
+      "usageProject": "Players control the character using arrow keys to navigate the map and push boxes into their designated positions. A reset function, activated by the space bar, allows players to restart the current level, providing opportunities for strategic planning and optimization.",
+      "Tools": [
+        "C",
+        "ncurses library"
+      ]
     },
     {
-      "imageUrl": "Runner-Presentation.png",
+      "id": "project-7",
+      "imageUrl": "/Runner/Runner-Presentation.png",
+      "projectImage": "/Runner/RunnerProject.png",
       "projectName": "RUNNER",
       "projectDescription": "This project is a videogame that follows the Endless Running game rules where the goal is to avoid obstacles all along the game.",
-      "projectDate": "2021"
+      "projectDate": "2021",
+      "introductionTitle": "What is Runner?",
+      "projectIntroduction": "This project is a small video game based on the rules of a finite endless runner. The player must avoid obstacles and enemies that approach from the opposite direction and reach the end of the map.",
+      "projectInfoTitle": "The game",
+      "projectInfo": "Developed using C and the CSFML library, Runner features a captivating parallax effect that enhances the game's visual depth. Players are immersed in a world where multiple layers of scenery move at varying speeds",
+      "usageTitle": "Controls",
+      "usageProject": "Navigate through a series of obstacles and enemies with intuitive controls. Use the up and down arrow keys to maneuver the phantom and avoid collisions. The game offers three lives per session, challenging players to strategize and improve their skills with each playthrough.",
+      "Tools": [
+        "C",
+        "CSFML library",
+        "Parallax"
+      ],
+      "videoUrl": "/Runner/RunnerVideo.mp4",
+      "urlTitle": "Project Repository:",
+      "urlReference":"GitHub - Runner",
+      "url": "https://github.com/bsibecas/Runner"
     }
   ]

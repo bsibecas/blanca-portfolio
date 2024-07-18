@@ -1,8 +1,4 @@
 'use client'
-// pages/index.js
-
-// pages/index.js
-
 import Head from 'next/head';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -19,7 +15,7 @@ export default function Projects() {
       const elementTop = element.getBoundingClientRect().top;
       const windowHeight = window.innerHeight;
 
-      if (elementTop < windowHeight * 0.75 && elementTop > -element.clientHeight) {
+      if (elementTop < windowHeight * 0.95 && elementTop > -element.clientHeight) {
         element.classList.add('visible');
       } else {
         element.classList.remove('visible');
@@ -28,12 +24,10 @@ export default function Projects() {
   };
 
   useEffect(() => {
-    // Trigger initial animation check
     handleScroll();
 
     window.addEventListener('scroll', handleScroll);
 
-    // Clean up event listener on component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -59,6 +53,7 @@ export default function Projects() {
               {projects.map((project, index) => (
                 <Card
                   key={index}
+                  id={project.id}
                   imageUrl={project.imageUrl}
                   projectName={project.projectName}
                   projectDate={project.projectDate}
@@ -73,4 +68,3 @@ export default function Projects() {
     </div>
   );
 }
-

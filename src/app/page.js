@@ -1,6 +1,5 @@
 'use client'
 // pages/index.js
-// pages/index.js
 
 import Head from 'next/head';
 import Footer from './components/Footer';
@@ -10,7 +9,6 @@ import { Providers } from './providers';
 import projects from '../../public/projects.json';
 import ImageTitleText from './components/ImageTitleText';
 import { useEffect } from 'react';
-import Image from 'next/image'
 
 export default function Home() {
   const handleScroll = () => {
@@ -30,7 +28,6 @@ export default function Home() {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-
     handleScroll();
 
     return () => {
@@ -58,11 +55,9 @@ export default function Home() {
             </p>
           </div>
           <div className="md:w-1/2">
-            <Image
+            <img
               src="/imageHome.png" // Replace with your image path
               alt="Profile Image"
-              width={500} // Provide appropriate width
-              height={300} // Provide appropriate height
               className="rounded-full h-90 w-90 object-cover mx-auto md:ml-auto" // Adjust size and styling as needed
             />
           </div>
