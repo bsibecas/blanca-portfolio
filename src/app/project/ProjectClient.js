@@ -45,8 +45,17 @@ export default function ProjectClient() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll();
-
+    setTimeout(() => {
+        const elements = document.querySelectorAll('.animate-section');
+        elements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          if (elementTop < windowHeight * 0.90) {
+            element.classList.add('visible');
+          }
+        });
+      }, 50);
+      
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };

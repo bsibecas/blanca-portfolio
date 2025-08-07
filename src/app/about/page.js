@@ -1,17 +1,14 @@
 'use client'
-// pages/about.js
 
 import Head from 'next/head';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import ProgressBar from "../components/ProgressBar";
 import { Providers } from '../providers';
 import { useEffect } from 'react';
 import PersonalCard from "../components/PersonalInfoCard";
 import ContactForm from "../components/ContactForm";
 import ExperienceSection from '../components/ExperienceSector';
 import experienceData from '../../../public/workExperience.json';
-
 
 const About = () => {
   const handleScroll = () => {
@@ -21,7 +18,6 @@ const About = () => {
       const elementTop = element.getBoundingClientRect().top;
       const windowHeight = window.innerHeight;
 
-      // Check if element is in view (adjusted to only animate when scrolling down)
       if (elementTop < windowHeight * 0.75) {
         element.classList.add('visible');
       } else {
@@ -31,12 +27,8 @@ const About = () => {
   };
 
   useEffect(() => {
-    // Trigger initial animation check
     handleScroll();
-
     window.addEventListener('scroll', handleScroll);
-
-    // Clean up event listener on component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -50,58 +42,67 @@ const About = () => {
           <title>About Me</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main className="flex flex-col  justify-center flex-1 text-left mt-8 max-w-6xl mx-auto w-full">
+
+        <main className="flex flex-col justify-center flex-1 text-left mt-8 max-w-6xl mx-auto w-full">
+          {/* Título principal */}
           <h1 className="text-5xl text-skyCustom font-bold mb-8 animate-section">
             About
           </h1>
-          <PersonalCard />
-          <div className="w-full flex px-8">
 
-            <div className="w-full text-left mb-8 ">
-            <h1 className="text-3xl lg:text-5xl mb-2 mt-12">
-              Professional Experience
-            </h1>
+          {/* Info personal */}
+          <PersonalCard />
+
+          {/* Experiencia profesional */}
+          <div className="w-full flex px-4 lg:px-8">
+            <div className="w-full text-left mb-8">
+              <h2 className="text-3xl lg:text-5xl mb-4 mt-12">Professional Experience</h2>
               <ExperienceSection experienceData={experienceData} />
             </div>
           </div>
 
-          <div className="w-full text-left mb-8 ml-10 animate-section">
-            <h1 className="text-3xl lg:text-5xl mb-6">
-              Curriculum Vitae
-            </h1>
+          {/* CV */}
+          <div className="w-full text-left mb-8 px-4 lg:ml-10 animate-section">
+            <h2 className="text-3xl lg:text-5xl mb-6">Curriculum Vitae</h2>
           </div>
-          <div className="w-full h-full flex justify-center items-start space-x-8 animate-section">
+
+          {/* CV viewer + Contacto */}
+          <div className="w-full h-full flex flex-col lg:flex-row justify-center items-center lg:items-start gap-8 px-4 animate-section">
+            {/* IFRAME CV */}
             <iframe
               src="/Blanca_Sibecas_CV_ENG.pdf"
-              width="45%"
-              height="550px"
-              className="border-2 border-sky-950"
+              className="w-full lg:w-[45%] h-[500px] border-2 border-sky-950"
               title="PDF Document"
             />
-            
-            <div className="w-2/5 h-full flex flex-col items-center justify-center space-y-4">
-              <p className="text-lg text-center">Here is my CV for more information:</p>
-              <div className="flex space-x-4">
-              <a
-                href="/Blanca_Sibecas_CV_ESP.pdf"
-                download="Blanca_Sibecas_CV_ESP.pdf"
-                className="bg-skyCustom text-black px-4 py-3 rounded hover:bg-pointedBluetSky hover:text-black transition duration-150 text-sm"
-              >
-                Download Spanish CV
-              </a>
 
-              <a
-                href="/Blanca_Sibecas_CV_ENG.pdf"
-                download="Blanca_Sibecas_CV_ENG.pdf"
-                className="bg-skyCustom text-black px-4 py-3 rounded hover:bg-pointedBluetSky hover:text-black transition duration-150 text-sm"
-              >
-                Download English CV
-              </a>
+            {/* Botones y formulario */}
+            <div className="w-full lg:w-[40%] flex flex-col items-center justify-center gap-6">
+              <p className="text-base text-center">
+                Here is my CV for more information:
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="/Blanca_Sibecas_CV_ESP.pdf"
+                  download="Blanca_Sibecas_CV_ESP.pdf"
+                  className="bg-skyCustom text-black px-4 py-2 rounded hover:bg-pointedBluetSky hover:text-black transition duration-150 text-sm text-center"
+                >
+                  Download Spanish CV
+                </a>
+
+                <a
+                  href="/Blanca_Sibecas_CV_ENG.pdf"
+                  download="Blanca_Sibecas_CV_ENG.pdf"
+                  className="bg-skyCustom text-black px-4 py-2 rounded hover:bg-pointedBluetSky hover:text-black transition duration-150 text-sm text-center"
+                >
+                  Download English CV
+                </a>
               </div>
+
               <ContactForm />
             </div>
           </div>
 
+          {/* Footer */}
           <Footer />
         </main>
       </Providers>

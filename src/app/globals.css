@@ -25,6 +25,60 @@ body {
   transition: color 0.2s ease-in-out, background 0.2s ease-in-out; /* Smooth transition */
 }
 
+/* estilos mínimos para tham */
+.tham {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tham-box {
+  width: 24px;
+  height: 18px;
+  position: relative;
+}
+
+.tham-inner {
+  background-color: currentColor;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  left: 0;
+  transition: all 0.3s ease;
+  transform: translateY(-50%);
+}
+
+.tham-inner::before,
+.tham-inner::after {
+  content: '';
+  background-color: currentColor;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  transition: all 0.3s ease;
+}
+
+.tham-inner::before {
+  top: -8px;
+}
+
+.tham-inner::after {
+  top: 8px;
+}
+
+.tham-active .tham-inner {
+  transform: rotate(45deg);
+}
+
+.tham-active .tham-inner::before {
+  transform: rotate(90deg);
+  top: 0;
+}
+
+.tham-active .tham-inner::after {
+  opacity: 0;
+}
+
 /* Fixed reference to --text-hover */
 a:hover {
   color: rgb(var(--text-hover)); /* Text color on hover */

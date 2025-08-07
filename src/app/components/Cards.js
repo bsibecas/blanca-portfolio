@@ -27,16 +27,16 @@ export default function Card({ id, imageUrl, projectName, projectDescription, pr
 
     return (
         <Link href={`/project?id=${id}`} className="no-underline">
-            <div
-                ref={cardRef}
-                className="group w-[460px] flex flex-col overflow-hidden animate-section"
+           <div
+            ref={cardRef}
+            className="group w-full max-w-sm flex flex-col overflow-hidden animate-section"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 style={{ cursor: isHovered ? 'pointer' : 'default' }}
             >
                 {/* Imagen arriba */}
-                <div className="w-[473px] h-[461px] bg-gray-200 overflow-hidden rounded-lg">
-                    {imageUrl ? (
+                <div className="w-full aspect-[1/1] max-h-[460px] bg-gray-200 overflow-hidden rounded-lg">
+                  {imageUrl ? (
                         <img
                         src={imageUrl}
                         alt={projectName}

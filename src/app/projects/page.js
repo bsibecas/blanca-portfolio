@@ -34,28 +34,28 @@ export default function Projects() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center min-h-screen py-2 px-2 ">
+    <div className="flex flex-col justify-center min-h-screen py-2">
       <Providers>
         <Header />
         <Head>
           <title>Projects</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <div className="max-w-6xl mx-auto w-full">
-          <main className="flex flex-col  justify-center flex-1 text-left mt-8">
+
+        <div className="max-w-6xl w-full mx-auto px-4">
+          <main className="flex flex-col justify-center flex-1 text-left mt-8">
             <h1 className="text-5xl text-skyCustom font-bold mb-8 animate-section">
               Projects
             </h1>
-            <p className="text-sm font-light max-w-auto px-26 animate-section">
+
+            <p className="text-sm font-light animate-section">
               Below are some projects I've worked on during my career and some personal projects that highlight various skills I've developed.
             </p>
-            <div className=" mt-8">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-x-20 gap-y-8">
+
+            <div className="mt-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6">
                 {projects.map((project, index) => (
-                  <div
-                    key={index}
-                    className={`${index % 2 === 0 ? 'mt-0' : ''}`}
-                  >
+                  <div key={index}>
                     <Card
                       id={project.id}
                       imageUrl={project.imageUrl}

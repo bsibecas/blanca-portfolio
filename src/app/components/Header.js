@@ -19,17 +19,21 @@ const Header = () => {
           alt="Logo"
           className="h-12 w-12 mr-2"
         />
-        <h1 className="text-xl font-sans">Blanca Sibecas Hernández</h1>
-      </div>
+          <h1 className="text-base sm:text-lg md:text-xl font-sans">Blanca Sibecas Hernández</h1>
+        </div>
 
       {/* Botón hamburguesa en móviles */}
-      <button
+      <div
+        className={`tham tham-e-squeeze md:hidden z-20
+          ${isOpen ? 'tham-active' : ''}
+          w-5 h-4 sm:w-6 sm:h-5`}
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden z-20"
         aria-label="Toggle menu"
       >
-        {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-      </button>
+        <div className="tham-box w-full h-full">
+          <div className="tham-inner" />
+        </div>
+      </div>
 
       {/* Navegación para escritorio */}
       <nav className="hidden md:flex items-center space-x-12">

@@ -14,6 +14,7 @@ import SkillsSection from './components/SkillsSection';
 import MainInterests from './components/MainInterests';
 import RecentProjectsSection from './components/RecentProjectCard';
 import ParticlesBackground from './components/ParticlesBackground';
+import ParticlesBackgroundMobile from './components/ParticlesBackgroundMobile';
 
 export default function Home() {
   const handleScroll = () => {
@@ -46,7 +47,12 @@ export default function Home() {
         <Header />
         <div className="max-w-6xl mx-auto w-full">
         <main className="relative flex flex-col md:flex-row items-center justify-center flex-1 text-center">
+        <div className="block md:hidden">
+          <ParticlesBackgroundMobile />
+        </div>
+        <div className="hidden md:block">
           <ParticlesBackground />
+        </div>
           <div className="md:w-1/2 text-left">
             <div className="mb-6 space-y-2">
               <p className="text-xs">Currently open to new opportunities</p>
