@@ -18,13 +18,13 @@ const Header = () => {
         <h1 className="text-xl font-sans">Blanca Sibecas Hernández</h1>
       </div>
       <nav className="flex items-center space-x-12">
-        <Link href="/" id="link">
+        <Link href="/" id="link" className="hover:text-skyCustom">
           Home
         </Link>
-        <Link href="/projects" id="link">
+        <Link href="/projects" id="link" className="hover:text-skyCustom">
           Projects
         </Link>
-        <Link href="/about" id="link">
+        <Link href="/about" id="link" className="hover:text-skyCustom">
           About
         </Link>
         <ThemeSwitch/>

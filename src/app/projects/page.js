@@ -34,35 +34,41 @@ export default function Projects() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2 px-2">
+    <div className="flex flex-col justify-center min-h-screen py-2 px-2 ">
       <Providers>
         <Header />
         <Head>
-          <title>My Portfolio</title>
+          <title>Projects</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main className="flex flex-col items-center justify-center flex-1 px-20 text-center">
-          <h1 className="text-6xl font-bold mb-8 animate-section">
-            Projects
-          </h1>
-          <p className="text-base font-light max-w-3xl px-26 animate-section">
-            Below are some projects I've worked on during my career and some personal projects that highlight various skills I've developed.
-          </p>
-          <div className="mx-auto px-5 mt-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project, index) => (
-                <Card
-                  key={index}
-                  id={project.id}
-                  imageUrl={project.imageUrl}
-                  projectName={project.projectName}
-                  projectDate={project.projectDate}
-                  projectDescription={project.projectDescription}
-                />
-              ))}
+        <div className="max-w-6xl mx-auto w-full">
+          <main className="flex flex-col  justify-center flex-1 text-left mt-8">
+            <h1 className="text-5xl text-skyCustom font-bold mb-8 animate-section">
+              Projects
+            </h1>
+            <p className="text-sm font-light max-w-auto px-26 animate-section">
+              Below are some projects I've worked on during my career and some personal projects that highlight various skills I've developed.
+            </p>
+            <div className=" mt-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-x-20 gap-y-8">
+                {projects.map((project, index) => (
+                  <div
+                    key={index}
+                    className={`${index % 2 === 0 ? 'mt-0' : ''}`}
+                  >
+                    <Card
+                      id={project.id}
+                      imageUrl={project.imageUrl}
+                      projectName={project.projectName}
+                      projectDate={project.projectDate}
+                      projectDescription={project.projectDescription}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </main>
+          </main>
+        </div>
         <Footer />
       </Providers>
     </div>

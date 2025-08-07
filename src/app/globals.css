@@ -13,9 +13,10 @@
 
 .dark {
   --foreground-rgb:  243, 244, 246; /* White text */
-  --background-start-rgb: 8, 47, 73; /* Gray-900 */
-  --background-end-rgb: 31, 41, 55; /* Gray-900 */
+  --background-start-rgb: 36, 37, 37; /* Gray-900 */
+  --background-end-rgb: 36, 37, 37; /* Gray-900 */
   --text-hover: 254, 240, 138; /* Gray-300 */
+  border: 1px solid white; /* Añade esta línea */
 }
 
 body {
@@ -27,7 +28,6 @@ body {
 /* Fixed reference to --text-hover */
 a:hover {
   color: rgb(var(--text-hover)); /* Text color on hover */
-  text-decoration: underline; /* Underline on hover */
 }
 
 .animate-section {
@@ -45,5 +45,9 @@ a:hover {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .text-stroke {
+    -webkit-text-stroke: 1.5px rgb(var(--foreground-rgb));
+    color: transparent;
   }
 }

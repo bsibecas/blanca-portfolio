@@ -90,7 +90,7 @@ export default function Project() {
                   </div>
                 )}
                 </div>
-                <h2 className="text-xl font-semibold  animate-section">{project.usageTitle}</h2>
+                <h2 className="text-xl font-semibold animate-section">{project.usageTitle}</h2>
                 <p className="mt-2 text-justify animate-section">{project.usageProject}</p>
                 {project.url && (
                   <div className="flex items-center space-x-2 mt-4 animate-section">

@@ -21,40 +21,71 @@ export default function Card({ id, imageUrl, projectName, projectDescription, pr
 
     useEffect(() => {
         handleScroll();
-
         window.addEventListener('scroll', handleScroll);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const handleMouseEnter = () => {
-        setIsHovered(true);
-    };
-
-    const handleMouseLeave = () => {
-        setIsHovered(false);
-    };
-
     return (
-        <Link href={`/project?id=${id}`} passHref>
-           <div
-                className="max-w-xs relative rounded-lg overflow-hidden shadow-lg duration-300 hover:shadow-2xl hover:scale-105 animate-section"
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
+        <Link href={`/project?id=${id}`} className="no-underline">
+            <div
+                ref={cardRef}
+                className="group w-[460px] flex flex-col overflow-hidden animate-section"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
                 style={{ cursor: isHovered ? 'pointer' : 'default' }}
             >
-                <div ref={cardRef}>
-                    <img
-                        className="w-full rounded-lg object-cover object-center transition-opacity duration-300"
+                {/* Imagen arriba */}
+                <div className="w-[473px] h-[461px] bg-gray-200 overflow-hidden rounded-lg">
+                    {imageUrl ? (
+                        <img
                         src={imageUrl}
                         alt={projectName}
-                    />
-                    <div className="absolute inset-0 flex flex-col items-start justify-start p-4 bg-sky-950 bg-opacity-0 text-white opacity-0 transition-opacity duration-300 hover:bg-opacity-75 hover:opacity-100 space-y-4">
-                        <p className="font-bold text-lg mt-4">{projectName}</p>
-                        <p className="text-sm text-left">{projectDescription}</p>
-                        <p className="text-xs font-light text-left">{projectDate}</p>
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                    ) : (
+                        <div className="h-full w-full bg-gray-200" />
+                    )}
+                    </div>
+
+                {/* Contenido debajo */}
+                <div className="mt-4 flex flex-col items-start px-2 select-none">
+                    <span
+                        className={`text-xs transition-colors duration-300 ${
+                            isHovered ? 'text-skyCustom' : 'text-gray-400'
+                        }`}
+                    >
+                        {projectDate || 'Main technology'}
+                    </span>
+
+                    <h3
+                        className={`text-lg font-semibold transition-colors duration-300 ${
+                            isHovered ? 'text-skyCustom' : ''
+                        }`}
+                    >
+                        {projectName || 'Project Name'}
+                    </h3>
+
+                    <p
+                        className={`text-sm mt-1 transition-colors duration-300 ${
+                            isHovered ? 'text-skyCustom' : ''
+                        }`}
+                    >
+                        {projectDescription ||
+                            'Description description description description description.'}
+                    </p>
+
+                    {/* Botón */}
+                    <div
+                        className={`mt-4 inline-flex items-center gap-2 px-4 py-2 border rounded-md text-sm font-medium
+                                   transition-colors duration-300 no-underline
+                                   ${
+                                       isHovered
+                                           ? 'text-skyCustom border-sky-400'
+                                           : ''
+                                   }`}
+                    >
+                        Read More
+                        <span className="transition-transform group-hover:translate-x-1">→</span>
                     </div>
                 </div>
             </div>

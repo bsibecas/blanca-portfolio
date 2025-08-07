@@ -9,6 +9,7 @@ const Footer = () => {
           href="https://github.com/bsibecas"
           target="_blank"
           rel="noopener noreferrer"
+          className="hover:text-skyCustom"
         >
           <AiFillGithub className="w-6 h-6" />
         </a>
@@ -16,6 +17,7 @@ const Footer = () => {
           href="https://www.linkedin.com/in/blancasibecas/"
           target="_blank"
           rel="noopener noreferrer"
+          className="hover:text-skyCustom"
         >
           <AiFillLinkedin className="w-6 h-6" />
         </a>

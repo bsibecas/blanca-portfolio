@@ -1,0 +1,47 @@
+[
+    {
+      "company": "ESTETICAL",
+      "title": "FULL STACK DEVELOPER",
+      "date": "Sept 2024 - Dec 2024",
+      "logo": "./Logos/estetical-logo.png",
+      "darkLogo": "./Logos/estetical-white-logo.png",
+      "responsibilities": [
+        "Migrated an internal web application to Vite.js, significantly improving build times and developer experience.",
+        "Developed and maintained new features using React, TypeScript, and Firebase to enhance application functionality and performance."
+      ]
+    },
+    {
+      "company": "SOPRA STERIA",
+      "title": "TEST AUTOMATION INTERN",
+      "date": "May 2023 - Jul 2023",
+      "logo": "./Logos/soprasteria-logo.png",
+      "darkLogo": "./Logos/sopra-white-logo.png",
+      "responsibilities": [
+        "Assisted the automation initiative by developing robust test automation scripts using Robot Framework.",
+        "Utilized industry-standard tools and frameworks to ensure comprehensive test coverage and improve software quality."
+      ]
+    },
+    {
+      "company": "LOGISCOOL",
+      "title": "PROGRAMMING TEACHER",
+      "date": "Oct 2022 - Feb 2023",
+      "logo": "./Logos/logiscool-logo.webp",
+      "darkLogo": "./Logos/logiscool-logo.webp",
+      "responsibilities": [
+        "Taught students aged 7 to 12 the fundamental concepts of programming and algorithms.",
+        "Designed and implemented engaging lessons, using games for younger students and more complete exercises for older ones, to foster logical thinking and problem-solving skills."
+      ]
+    },
+    {
+      "company": "YEGO URBAN MOBILITY",
+      "title": "FRONT-END INTERN",
+      "date": "Sep 2021 - Dec 2021",
+      "logo": "./Logos/yego-logo.png",
+      "darkLogo": "./Logos/yego-white-logo.png",
+      "responsibilities": [
+        "Designed and developed a geospatial tool for the Yego team using React.js.",
+        "Collaborated with a small team to create a feature that used geospatial coordinates to define accessibility zones for Yego scooters on a map of Barcelona.",
+        "Contributed to achieving project objectives in a fast-paced, professional environment."
+      ]
+    }
+  ]

@@ -7,6 +7,11 @@ import Header from '../components/Header';
 import ProgressBar from "../components/ProgressBar";
 import { Providers } from '../providers';
 import { useEffect } from 'react';
+import PersonalCard from "../components/PersonalInfoCard";
+import ContactForm from "../components/ContactForm";
+import ExperienceSection from '../components/ExperienceSector';
+import experienceData from '../../../public/workExperience.json';
+
 
 const About = () => {
   const handleScroll = () => {
@@ -45,93 +50,58 @@ const About = () => {
           <title>About Me</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main className="flex flex-col items-center justify-center flex-1 px-20 text-center w-full">
-          <div className="max-w-6xl flex flex-col lg:flex-row justify-between items-start p-6 rounded-lg w-full animate-section">
-            <div className="w-1/2 mb-6 lg:mb-0 lg:mr-8">
-              <img
-                src="/profile-image.jpg" // Replace with your image URL
-                alt="Profile"
-                className="rounded-full w-40 h-40 object-cover object-center"
-              />
-            </div>
-            <div className="w-full lg:w-1/2 text-left mb-8">
-              <h1 className="text-4xl lg:text-6xl font-bold mb-4">
-                Hi there!
-              </h1>
-              <div>
-                <p className="text-lg mb-4 text-justify">
-                  I'm Blanca Sibecas Hernández, a software engineering graduate currently pursuing advanced studies and diverse projects.
-                </p>
-
-                <p className="text-lg mb-4 text-justify">
-                  I have a keen interest in Web and Mobile development, Artificial Intelligence, and video game programming. I am skilled in programming languages such as C, C++, React, and Python. I actively pursue opportunities to expand my knowledge and explore new languages and technologies.
-                </p>
-              </div>
-            </div>
-          </div>
+        <main className="flex flex-col  justify-center flex-1 text-left mt-8 max-w-6xl mx-auto w-full">
+          <h1 className="text-5xl text-skyCustom font-bold mb-8 animate-section">
+            About
+          </h1>
+          <PersonalCard />
           <div className="w-full flex px-8">
-            <div className="w-full lg:w-1/2 text-left mb-8 animate-section">
-              <h1 className="text-3xl lg:text-5xl font-bold mb-4">
-                My Career
-              </h1>
-              <p className="text-lg mb-4 text-justify">
-                I recently completed a Master's degree in Programming Video Games from The Core School, specializing in Unreal and Unity tools. Beginning in October, I will pursue a Master's in Artificial Intelligence at Europe University of Madrid. I'm excited about this upcoming program as it promises to further enhance my skills.
-              </p>
-              <p className="text-lg mb-4 text-justify">
-                Thank you for visiting my portfolio and I invite you to explore my projects. If you'd like to collaborate or learn more about my work, feel free to reach out!
-              </p>
-            </div>
-            <div className="w-full lg:w-1/2 mb-10 lg:ml-8 animate-section ">
-              <div className="mb-10">
-                <h2 className="text-lg lg:text-xl mt-12 font-bold text-left mb-4 ml-8">
-                  Languages
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ml-8">
-                  <div>
-                    <ProgressBar language="Catalan" percentage={100} level="(Native)" />
-                    <ProgressBar language="Spanish" percentage={100} level="(Native)" />
-                  </div>
-                  <div>
-                    <ProgressBar language="French" percentage={80} level="(C1)" />
-                    <ProgressBar language="English" percentage={80} level="(C1)" />
-                  </div>
-                </div>
-              </div>
+
+            <div className="w-full text-left mb-8 ">
+            <h1 className="text-3xl lg:text-5xl mb-2 mt-12">
+              Professional Experience
+            </h1>
+              <ExperienceSection experienceData={experienceData} />
             </div>
           </div>
+
           <div className="w-full text-left mb-8 ml-10 animate-section">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+            <h1 className="text-3xl lg:text-5xl mb-6">
               Curriculum Vitae
             </h1>
           </div>
-          <div className="w-full h-full flex justify-center items-center space-y-2 animate-section">
+          <div className="w-full h-full flex justify-center items-start space-x-8 animate-section">
             <iframe
-              src="/_Blanca_Sibecas_ENG_CV.pdf"
-              width="60%"
+              src="/Blanca_Sibecas_CV_ENG.pdf"
+              width="45%"
               height="550px"
-              className="border-2 border-sky-950 ml-8"
+              className="border-2 border-sky-950"
               title="PDF Document"
             />
-            <div className="w-full h-full flex flex-col items-center justify-center space-y-4">
-              <p className="text-lg">Here is my CV for more information:</p>
+            
+            <div className="w-2/5 h-full flex flex-col items-center justify-center space-y-4">
+              <p className="text-lg text-center">Here is my CV for more information:</p>
               <div className="flex space-x-4">
-                <a
-                  href="/resume.pdf"
-                  download
-                  className="bg-amber-500 text-white px-4 hover:text-white py-2 rounded hover:bg-amber-300 transition duration-150"
-                >
-                  Download Spanish CV
-                </a>
-                <a
-                  href="/_Blanca_Sibecas_ENG_CV.pdf"
-                  download
-                  className="bg-amber-500 text-white px-4 hover:text-white py-2 rounded hover:bg-amber-300 transition duration-150"
-                >
-                  Download English CV
-                </a>
+              <a
+                href="/Blanca_Sibecas_CV_ESP.pdf"
+                download="Blanca_Sibecas_CV_ESP.pdf"
+                className="bg-skyCustom text-black px-4 py-3 rounded hover:bg-pointedBluetSky hover:text-black transition duration-150 text-sm"
+              >
+                Download Spanish CV
+              </a>
+
+              <a
+                href="/Blanca_Sibecas_CV_ENG.pdf"
+                download="Blanca_Sibecas_CV_ENG.pdf"
+                className="bg-skyCustom text-black px-4 py-3 rounded hover:bg-pointedBluetSky hover:text-black transition duration-150 text-sm"
+              >
+                Download English CV
+              </a>
               </div>
+              <ContactForm />
             </div>
           </div>
+
           <Footer />
         </main>
       </Providers>

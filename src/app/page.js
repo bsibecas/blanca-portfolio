@@ -4,11 +4,16 @@
 import Head from 'next/head';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import Card from "./components/Cards";
+import RecentProjectCard from "./components/RecentProjectCard";
 import { Providers } from './providers';
 import projects from '../../public/projects.json';
 import ImageTitleText from './components/ImageTitleText';
 import { useEffect } from 'react';
+import { AiFillGithub } from 'react-icons/ai';
+import SkillsSection from './components/SkillsSection';
+import MainInterests from './components/MainInterests';
+import RecentProjectsSection from './components/RecentProjectCard';
+import ParticlesBackground from './components/ParticlesBackground';
 
 export default function Home() {
   const handleScroll = () => {
@@ -36,91 +41,57 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2 px-2">
+    <div className="flex flex-col justify-center min-h-screen py-2 px-2 ">
       <Providers>
         <Header />
-        <main className="flex flex-col md:flex-row items-center justify-center flex-1 px-20 text-center">
-          <div className="md:w-1/2 md:text-left mb-10 md:mb-0 animate-section">
-            <h2 className="text-3xl font-bold py-4 text-amber-500">
-              Hello, I'm
-            </h2>
-            <h1 className="text-5xl font-bold">
-              Blanca Sibecas Hernández
-            </h1>
-            <p className="mt-3 text-2xl">
-              A <span className="text-emerald-500">Software Engineer</span>  from Barcelona
-            </p>
-            <p className="mt-3 text-md text-justify">
-              I'm passionate about exploring new technologies and creating innovative solutions. This portfolio is built with Next.js, showcasing my skills in modern web development. Dive in to see my projects and learn more about my journey.
-            </p>
+        <div className="max-w-6xl mx-auto w-full">
+        <main className="relative flex flex-col md:flex-row items-center justify-center flex-1 text-center">
+          <ParticlesBackground />
+          <div className="md:w-1/2 text-left">
+            <div className="mb-6 space-y-2">
+              <p className="text-xs">Currently open to new opportunities</p>
+              <p className="text-xs">Worldwide</p>
+            </div>
+            <div className="space-y-5">
+              <hr className="w-12 "/>
+              <h2 className="text-xl font-light">
+                Hello I’m Blanca Sibecas Hernández
+              </h2>
+              <h1 className="text-[54px] font-bold">
+                <span className="text-skyCustom block">A Creative</span>
+                <span className="text-stroke">Software Engineer</span>
+              </h1>
+            </div>
+            <div className="mb-6 space-y-0 mt-4">
+              <p className="text-sm">I build modern web & mobile apps</p>
+              <p className="text-sm">using React, Next.js & React Native</p>
+            </div>
+            <div className="flex items-center space-x-4">
+              <a 
+                href="#contact" 
+                className="bg-skyCustom hover:bg-darkSky hover:text-white hover:no-underline text-black font-medium py-3 px-6 rounded-lg transition"
+              >  Get in touch →  </a>
+              <a href="https://github.com/bsibecas" target="_blank" rel="noopener noreferrer" className="hover:text-skyCustom" >
+                <AiFillGithub className="w-9 h-9" />
+              </a>
+            </div>
           </div>
-          <div className="md:w-1/2">
-            <img
-              src="/imageHome.png" // Replace with your image path
-              alt="Profile Image"
-              className="rounded-full h-90 w-90 object-cover mx-auto md:ml-auto" // Adjust size and styling as needed
-            />
-          </div>
-        </main>
-        
-        {/* Horizontal line */}
-        <hr className="w-full border-t border-gray-300 my-8 animate-section" />
-
-        <div className="text-center animate-section">
-          <h2 className="text-2xl font-bold mb-4">Main Interests</h2>
-        </div>
-
-        <div className="flex flex-wrap justify-center mt-8 space-x-32 animate-section">
-          <ImageTitleText
-            imageUrl="/WebAppDev-img.png"
-            title="Web & Mobile Apps"
-            text="I create responsive web and mobile apps, handling front-end interfaces and back-end logic."
-          />
-          <ImageTitleText
-            imageUrl="/AI-img.png"
-            title="Artificial Intelligence"
-            text="I'm beginning my journey into Artificial Intelligence (AI) with a master's program ahead."
-          />
-          <ImageTitleText
-            imageUrl="/VideoGames-img.png"
-            title="Video Games Programming"
-            text="I combine creativity with technical expertise to craft immersive gaming experiences"
-          />
-        </div>
-        <hr className="w-full border-t border-gray-300 my-8 animate-section" />
-        <div className="text-center mt-8 animate-section">
-          <h2 className="text-2xl font-bold mb-6">Main Skills</h2>
-          <div className="flex flex-wrap item-center justify-center">
-            <span className="text-sm font-medium bg-emerald-500 py-1 px-2 rounded text-emerald-800 align-middle mr-4 mb-4">C</span>
-            <span className="text-sm font-medium bg-emerald-500 py-1 px-2 rounded text-emerald-800 align-middle mr-4 mb-4">C++</span>
-            <span className="text-sm font-medium bg-emerald-500 py-1 px-2 rounded text-emerald-800 align-middle mr-4 mb-4">JavaScript</span>
-            <span className="text-sm font-medium bg-emerald-500 py-1 px-2 rounded text-emerald-800 align-middle mr-4 mb-4">Python</span>
-            <span className="text-sm font-medium bg-emerald-500 py-1 px-2 rounded text-emerald-800 align-middle mr-4 mb-4">React Native</span>
-            <span className="text-sm font-medium bg-emerald-500 py-1 px-2 rounded text-emerald-800 align-middle mr-4 mb-4">React js</span>
-            <span className="text-sm font-medium bg-emerald-500 py-1 px-2 rounded text-emerald-800 align-middle mr-4 mb-4">Next js</span>
-            <span className="text-sm font-medium bg-emerald-500 py-1 px-2 rounded text-emerald-800 align-middle mr-4 mb-4">Vue js</span>
-          </div>
-          <div className="flex flex-wrap item-center justify-center">
-            <span className="text-sm font-medium bg-amber-500 py-1 px-2 rounded text-amber-800 align-middle mr-4 mb-4">Unreal</span>
-            <span className="text-sm font-medium bg-amber-500 py-1 px-2 rounded text-amber-800 align-middle mr-4 mb-4">Unity</span>
-            <span className="text-sm font-medium bg-amber-500 py-1 px-2 rounded text-amber-800 align-middle mr-4 mb-4">C#</span>
-            <span className="text-sm font-medium bg-amber-500 py-1 px-2 rounded text-amber-800 align-middle mr-4 mb-4">Godot</span>
-          </div>
-        </div>
-
-        <div className="flex flex-col items-center justify-center mt-10 animate-section">
-          <h2 className="text-2xl font-bold mb-6">Most recent projects</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.slice(0, 3).map((project, index) => (
-              <Card
-                key={index}
-                imageUrl={project.imageUrl}
-                projectName={project.projectName}
-                projectDate={project.projectDate}
-                projectDescription={project.projectDescription}
+            <div className="md:w-1/2">
+              <img
+                src="/imageHome2.jpg"
+                alt="Profile Image"
+                className="rounded-full h-90 w-90 object-cover mx-auto md:ml-auto"
               />
-            ))}
+            </div>
+          </main>
+          <SkillsSection />
+          <div className="flex flex-col  justify-center mt-10 animate-section">
+            <h1 className="text-3xl lg:text-5xl mt-12">
+              Main Interests
+            </h1>
+            <MainInterests />
           </div>
+          <RecentProjectsSection projects={projects} />
         </div>
         <Footer />
       </Providers>
