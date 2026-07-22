@@ -1,105 +1,147 @@
-import React, { useEffect, useRef, useState } from 'react';
+'use client';
+
+import Image from 'next/image';
 import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { useState } from 'react';
+import ProjectModal from './ProjectModal';
 
-function ProjectCard({ project, isImageLeft }) {
-  const flexClasses = isImageLeft ? 'md:flex-row' : 'md:flex-row-reverse';
+const getYear = (date = '') => {
+  if (/actual|present/i.test(date)) return 'Now';
+  return date.match(/\d{4}/g)?.at(-1) || date;
+};
 
-  const [isVisible, setIsVisible] = useState(false);
-  const domRef = useRef();
+const getShortDescription = (description = '') => {
+  const [firstSentence] = description.split(/(?<=[.!?])\s+/);
+  return firstSentence.length > 150
+    ? `${firstSentence.slice(0, 147).trim()}...`
+    : firstSentence;
+};
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(domRef.current);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const currentRef = domRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-    
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, []);
+function ProjectCard({ project, featured = false, onOpen }) {
+  const reduceMotion = useReducedMotion();
+  const [isHovered, setIsHovered] = useState(false);
+  const isDark = project.id === 'project-2';
+  const tools = project.Tools?.slice(0, 4) || [];
 
   return (
-    <div 
-      ref={domRef}
-      className={`
-        group flex flex-col ${flexClasses} md:gap-8 items-center mb-16 p-6 rounded-lg 
-        bg-white  dark:bg-darkCard shadow-lg dark:shadow-none
-        transition-all duration-500 ease-in-out transform
-        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-        hover:shadow-2xl hover:scale-105
-      `}
+    <motion.article
+      className={featured ? 'lg:row-span-2' : ''}
+      initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-10% 0px' }}
+      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="w-full md:w-1/2 mb-4 md:mb-0 group overflow-hidden rounded-lg">
-        <div className="bg-gray-200 dark:bg-gray-700 w-full h-[300px] rounded-lg overflow-hidden">
-          <img
-            src={project.imageUrl}
-            alt={project.projectName}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
+      <Link
+        href={`/project?id=${project.id}`}
+        onClick={(event) => {
+          event.preventDefault();
+          onOpen(project);
+        }}
+        className={`group relative flex h-full min-h-[280px] flex-col overflow-hidden rounded-[8px] border border-line/45 transition-colors duration-300 hover:!border-accent/80 hover:no-underline ${
+          isDark
+            ? 'bg-ink/95 text-ink-inverse hover:!text-ink-inverse'
+            : 'bg-surface-raised/45 text-ink hover:!text-ink'
+        }`}
+      >
+        <span className={`absolute right-5 top-5 z-20 text-sm ${isDark ? 'text-brand-soft' : 'text-ink-muted'}`}>
+          {getYear(project.projectDate)}
+        </span>
+
+        <div className="px-5 pt-5 md:px-6 md:pt-6">
+          <h3 className={`pr-14 font-serif text-[clamp(1.8rem,2.3vw,2.7rem)] leading-none ${isDark ? 'text-ink-inverse' : 'text-ink'}`}>
+            {project.projectName}
+          </h3>
         </div>
-      </div>
-      
-      <div className="w-full md:w-1/2 text-center md:text-left">
-        <h3 className="text-3xl font-semibold mb-4 dark:text-white group-hover:text-skyCustom transition-colors duration-300">{project.projectName}</h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-6 group-hover:text-skyCustom transition-colors duration-300">{project.projectDescription}</p>
-        
-        <Link href={`/project?id=${project.id}`} legacyBehavior>
-          <a className="inline-block px-6 py-3 border border-skyCustom dark:border-pointedBluetSky text-skyCustom font-medium rounded-lg hover:bg-sky-50 dark:hover:bg-darkCard transition duration-300">
-            Read More →
-          </a>
-        </Link>
-      </div>
-    </div>
+
+        <div className="flex flex-1 flex-col md:flex-row">
+          <div className={`z-10 flex flex-col justify-between px-5 pb-5 pt-4 md:px-6 md:pb-6 ${
+            featured ? 'md:w-[35%]' : 'md:w-[44%]'
+          }`}>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+                Selected work
+              </p>
+              <p className={`mt-3 text-sm leading-6 ${isDark ? 'text-brand-soft' : 'text-ink-muted'}`}>
+                {getShortDescription(project.projectDescription)}
+              </p>
+            </div>
+
+            <div className="mt-6">
+              <p className={`text-xs leading-5 ${isDark ? 'text-brand-soft' : 'text-ink-muted'}`}>
+                {tools.join(' · ')}
+              </p>
+              <span className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-accent">
+                View project
+                <ArrowUpRight size={15} aria-hidden="true" />
+              </span>
+            </div>
+          </div>
+
+          <div className="relative m-4 mt-0 min-h-[160px] flex-1 overflow-hidden md:ml-0 md:mt-4">
+            <motion.div
+              className="absolute inset-0"
+              animate={reduceMotion ? {} : { scale: isHovered ? 1.025 : 1, x: isHovered ? 5 : 0 }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <Image
+                src={project.imageUrl}
+                alt={`${project.projectName} preview`}
+                fill
+                sizes={featured ? '(min-width: 1024px) 55vw, 100vw' : '(min-width: 1024px) 30vw, 100vw'}
+                className="object-contain"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </Link>
+    </motion.article>
   );
 }
 
 export default function RecentProjectsSection({ projects }) {
-  const sortProjectsByDate = (a, b) => {
-    const aIsCurrent = a.projectDate.includes('Present') || a.projectDate.includes('PRESENT');
-    const bIsCurrent = b.projectDate.includes('Present') || b.projectDate.includes('PRESENT');
-
-    if (aIsCurrent && !bIsCurrent) return -1;
-    if (!aIsCurrent && bIsCurrent) return 1;
-
-    const getYear = (dateString) => {
-      const parts = dateString.match(/\d{4}/g);
-      return parts ? parseInt(parts[parts.length - 1], 10) : 0;
-    };
-
-    const yearA = getYear(a.projectDate);
-    const yearB = getYear(b.projectDate);
-
-    return yearB - yearA;
-  };
-
-  const recentProjects = [...projects].sort(sortProjectsByDate).slice(0, 3);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const recentProjects = [...projects]
+    .sort((a, b) => {
+      const aCurrent = /actual|present/i.test(a.projectDate);
+      const bCurrent = /actual|present/i.test(b.projectDate);
+      if (aCurrent !== bCurrent) return aCurrent ? -1 : 1;
+      return Number(getYear(b.projectDate)) - Number(getYear(a.projectDate));
+    })
+    .slice(0, 3);
 
   return (
-    <div className="flex flex-col justify-center mt-10 animate-section">
-      <h2 className="text-3xl lg:text-5xl mt-2 mb-8 text-center dark:text-white">
-        Most Recent Projects
-      </h2>
-      <div className="max-w-6xl mx-auto w-full">
+    <section className="mt-20 pb-16 animate-section">
+      <div className="mb-8 flex items-end justify-between gap-6 border-b border-line pb-6">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">Selected work</p>
+          <h2 className="mt-3 font-serif text-4xl font-normal text-ink md:text-6xl">
+            Most Recent Projects
+          </h2>
+        </div>
+        <Link
+          href="/projects"
+          className="hidden items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-ink-muted transition-colors hover:!text-accent hover:no-underline sm:inline-flex"
+        >
+          View all
+          <ArrowUpRight size={16} aria-hidden="true" />
+        </Link>
+      </div>
+
+      <div className="grid items-stretch gap-6 lg:grid-cols-[minmax(0,1.12fr)_minmax(360px,0.88fr)] lg:gap-7">
         {recentProjects.map((project, index) => (
-          <ProjectCard 
+          <ProjectCard
             key={project.id}
             project={project}
-            isImageLeft={index % 2 === 0}
+            featured={index === 0}
+            onOpen={setSelectedProject}
           />
         ))}
       </div>
-    </div>
+      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+    </section>
   );
 }

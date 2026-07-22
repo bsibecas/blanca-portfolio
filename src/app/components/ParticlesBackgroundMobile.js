@@ -10,7 +10,7 @@ export default function ParticlesBackgroundMobile() {
     const sketch = (p) => {
       const totalParticles = 80;
       const particles = [];
-      const baseColor = [125, 214, 232];
+      const baseColor = [217, 74, 31];
 
       class Particle {
         constructor(x, y) {
@@ -75,7 +75,7 @@ export default function ParticlesBackgroundMobile() {
   return (
     <div
       ref={wrapperRef}
-      className="fixed inset-0 z-[-1] pointer-events-none"
+      className="fixed inset-0 z-0 pointer-events-none opacity-60"
     />
   );
 }
