@@ -4,25 +4,188 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 8, 47, 73; /* Sky-950 text */
-  --background-start-rgb: 243, 244, 246; /* Gray-100 */
-  --background-end-rgb: 243, 244, 246; /* Gray-100 */
-  --text-hover: 3, 105, 161; /* Gray-900 */
-  
+  --color-brand: 110 93 81;
+  --color-brand-strong: 23 21 18;
+  --color-brand-soft: 200 189 177;
+  --color-brand-wash: 248 242 234;
+  --color-accent: 217 74 31;
+  --color-surface: 248 242 234;
+  --color-surface-raised: 255 251 244;
+  --color-surface-muted: 234 225 213;
+  --color-surface-dark: 23 21 18;
+  --color-ink: 23 21 18;
+  --color-ink-muted: 110 93 81;
+  --color-ink-inverse: 248 242 234;
+  --color-line: 216 207 196;
+  --color-line-strong: 110 93 81;
+  --foreground-rgb: var(--color-ink);
+  --background-start-rgb: var(--color-surface);
+  --background-end-rgb: var(--color-surface);
+  --text-hover: var(--color-accent);
 }
 
 .dark {
-  --foreground-rgb:  243, 244, 246; /* White text */
-  --background-start-rgb: 36, 37, 37; /* Gray-900 */
-  --background-end-rgb: 36, 37, 37; /* Gray-900 */
-  --text-hover: 254, 240, 138; /* Gray-300 */
-  border: 1px solid white; /* Añade esta línea */
+  --color-brand: 200 189 177;
+  --color-brand-strong: 248 242 234;
+  --color-brand-soft: 110 93 81;
+  --color-brand-wash: 38 34 30;
+  --color-accent: 217 74 31;
+  --color-surface: 23 21 18;
+  --color-surface-raised: 33 30 27;
+  --color-surface-muted: 48 43 38;
+  --color-surface-dark: 248 242 234;
+  --color-ink: 248 242 234;
+  --color-ink-muted: 200 189 177;
+  --color-ink-inverse: 23 21 18;
+  --color-line: 58 52 46;
+  --color-line-strong: 200 189 177;
+  --foreground-rgb: var(--color-ink);
+  --background-start-rgb: var(--color-surface);
+  --background-end-rgb: var(--color-surface);
+  --text-hover: var(--color-accent);
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-start-rgb));
+  overflow-x: hidden;
   transition: color 0.2s ease-in-out, background 0.2s ease-in-out; /* Smooth transition */
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+@media (max-width: 767px) {
+  .hero-profile-window,
+  .hero-skills-window {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 1.5rem;
+    translate: 0 0 !important;
+    scale: 1 !important;
+    opacity: 1 !important;
+  }
+
+  .hero-profile-content {
+    padding: 1rem !important;
+  }
+
+  .hero-profile-image {
+    width: 100% !important;
+    height: min(78vw, 360px) !important;
+    border-radius: 12px !important;
+  }
+
+  .hero-profile-info {
+    opacity: 1 !important;
+    translate: 0 0 !important;
+  }
+
+  .hero-profile-info [style] {
+    opacity: 1 !important;
+    translate: 0 0 !important;
+  }
+
+  .hero-profile-window > div:first-child,
+  .hero-skills-window > div:first-child {
+    opacity: 1 !important;
+  }
+}
+
+@layer components {
+  .site-container {
+    width: 100%;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1rem, 4.5vw, 5rem);
+    padding-right: clamp(1rem, 4.5vw, 5rem);
+  }
+
+  @media (max-width: 639px) {
+    .site-container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  .projects-editorial-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-areas:
+      "feature"
+      "web"
+      "game"
+      "area"
+      "algorithmic";
+  }
+
+  .project-slot-feature {
+    grid-area: feature;
+  }
+
+  .project-slot-web {
+    grid-area: web;
+  }
+
+  .project-slot-game {
+    grid-area: game;
+  }
+
+  .project-slot-area {
+    grid-area: area;
+  }
+
+  .project-slot-algorithmic {
+    grid-area: algorithmic;
+  }
+
+  @screen lg {
+    .projects-editorial-grid {
+      gap: 1.75rem;
+      grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
+      grid-template-areas:
+        "feature web"
+        "feature game"
+        "area algorithmic";
+    }
+
+    .project-slot-feature > a {
+      min-height: 320px;
+    }
+
+    .project-slot-web > a,
+    .project-slot-game > a {
+      min-height: 160px;
+    }
+
+    .project-slot-area > a,
+    .project-slot-algorithmic > a {
+      min-height: 220px;
+    }
+  }
+}
+
+@keyframes theme-icon-in {
+  from {
+    opacity: 0.65;
+    transform: rotate(-32deg) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.theme-icon-in {
+  animation: theme-icon-in 260ms ease-out;
 }
 
 /* estilos mínimos para tham */

@@ -26,19 +26,24 @@ export default function ThemeSwitch() {
 
   return (
     <div className="flex">
-        <div className="w-10 h-10 flex items-center justify-center rounded-full cursor-pointer transition duration-300 hover:bg-gray-200 dark:hover:bg-gray-600">
+        <button
+          type="button"
+          className="flex h-10 w-10 cursor-pointer items-center justify-center text-ink-muted transition-colors duration-200 hover:text-accent"
+          aria-label={resolvedTheme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+          onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+        >
         {resolvedTheme === "dark" ? (
             <FiSun
-            className="text-yellow-500 cursor-pointer transition duration-300 "
-            onClick={() => setTheme("light")}
+            key="sun"
+            className="theme-icon-in h-[19px] w-[19px] cursor-pointer"
             />
         ) : (
             <FiMoon
-            className="text-gray-700 cursor-pointer transition duration-300 "
-            onClick={() => setTheme("dark")}
+            key="moon"
+            className="theme-icon-in h-[19px] w-[19px] cursor-pointer"
             />
         )}
-        </div>
+        </button>
     </div>
   );
 }
