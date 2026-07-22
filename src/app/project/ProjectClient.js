@@ -66,7 +66,7 @@ export default function ProjectClient() {
       <Providers>
         <Header />
         <div className="flex flex-col items-center justify-center py-8">
-          <div className="max-w-4xl mx-auto px-4">
+          <div className="site-container">
             {project ? (
               <>
                 <h1 className="text-5xl font-bold text-center animate-section">{project.projectName}</h1>
