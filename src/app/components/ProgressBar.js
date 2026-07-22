@@ -8,9 +8,9 @@ const ProgressBar = ({ language, percentage, level }) => {
       </div>
 
       {/* Barra de progreso */}
-      <div className="mt-2 h-4 relative w-full rounded-full overflow-hidden bg-lightSky">
+      <div className="mt-2 h-4 relative w-full rounded-full overflow-hidden bg-brand-wash">
         <div
-          className="h-full bg-skyCustom absolute left-0 top-0 transition-all duration-500"
+          className="h-full bg-accent absolute left-0 top-0 transition-all duration-500"
           style={{ width: `${percentage}%` }}
         ></div>
       </div>

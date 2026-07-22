@@ -18,7 +18,7 @@ function ExperienceEntry({ job, index }) {
         {/* Contenedor de línea + bolita */}
         <div className="relative mr-6 flex flex-col items-center">
           <motion.div
-            className="absolute top-0 left-1/2 w-px h-full bg-gray-300 dark:bg-gray-600"
+            className="absolute top-0 left-1/2 w-px h-full bg-line"
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
             transition={{ duration: 0.8 }}
@@ -27,7 +27,7 @@ function ExperienceEntry({ job, index }) {
           />
   
           <motion.div
-            className="relative w-3 h-3 rounded-full bg-skyCustom border border-skyCustom z-10 -ml-1"
+            className="relative w-3 h-3 rounded-full bg-accent border border-accent z-10 -ml-1"
             initial={{ y: -30, opacity: 0, scale: 0.5 }}
             whileInView={{ y: 0, opacity: 1, scale: 1 }}
             transition={{
@@ -50,11 +50,11 @@ function ExperienceEntry({ job, index }) {
         >
           {/* Texto: 2/3 */}
           <div className="flex-[2] pr-6">
-            <h3 className="text-xl font-semibold dark:text-white">{job.company}</h3>
-            <p className="text-gray-500 text-sm italic mb-4 dark:text-gray-400">
+            <h3 className="text-xl font-semibold text-ink">{job.company}</h3>
+            <p className="text-ink-muted text-sm italic mb-4">
               {job.title} / {job.date}
             </p>
-            <ul className="list-disc pl-5 space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            <ul className="list-disc pl-5 space-y-2 text-sm text-ink-muted">
               {job.responsibilities.map((responsibility, i) => (
                 <motion.li
                   key={i}
