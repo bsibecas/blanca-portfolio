@@ -59,7 +59,7 @@ const projectMeta = {
     role: 'C Development',
     variant: 'tall',
     imageRatio: 'aspect-[16/9]',
-    interaction: 'video',
+    interaction: 'zoom',
     categories: ['ai'],
   },
   'project-6': {
@@ -79,6 +79,27 @@ const projectMeta = {
     dark: true,
     imageRatio: 'aspect-[4/5]',
     interaction: 'zoom',
+    categories: ['web'],
+  },
+  'project-8': {
+    eyebrow: 'Mobile commerce',
+    role: 'React Native Engineering',
+    variant: 'wide',
+    interaction: 'zoom',
+    categories: ['mobile'],
+  },
+  'project-9': {
+    eyebrow: 'Generative music',
+    role: 'Machine Learning',
+    variant: 'dark',
+    interaction: 'pan',
+    categories: ['ai'],
+  },
+  'project-10': {
+    eyebrow: 'Realtime dashboard',
+    role: 'Frontend Engineering',
+    variant: 'wide',
+    interaction: 'lift',
     categories: ['web'],
   },
 };
@@ -329,17 +350,23 @@ function EditorialGallery({ projects: galleryProjects, hoveredId, setHoveredId, 
       <div className="projects-editorial-grid">
         {renderProject('project-1', 0, 'project-slot-feature', 'feature')}
         {renderProject('project-1-web', 1, 'project-slot-web', 'stack')}
-        {renderProject('project-2', 2, 'project-slot-game', 'dark')}
-        {renderProject('project-3', 3, 'project-slot-area', 'wide')}
-        {renderProject('project-4', 4, 'project-slot-algorithmic', 'wide')}
+        {renderProject('project-8', 2, 'project-slot-game', 'stack')}
+        {renderProject('project-9', 3, 'project-slot-area', 'dark')}
+        {renderProject('project-10', 4, 'project-slot-algorithmic', 'wide')}
       </div>
 
       <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)] lg:gap-7">
-        {renderProject('project-7', 7, '', 'poster')}
+        {renderProject('project-2', 5, '', 'poster')}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-1 lg:gap-7">
-          {renderProject('project-6', 6, '', 'compact')}
-          {renderProject('project-5', 5, '', 'compact')}
+          {renderProject('project-3', 6, '', 'compact')}
+          {renderProject('project-4', 7, '', 'compact')}
         </div>
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-3 lg:gap-7">
+        {renderProject('project-5', 8, '', 'compact')}
+        {renderProject('project-6', 9, '', 'compact')}
+        {renderProject('project-7', 10, '', 'compact')}
       </div>
     </section>
   );
@@ -370,7 +397,7 @@ export default function Projects() {
           <section className="pb-12">
             <div className="grid gap-10 lg:grid-cols-[0.9fr_1fr_0.55fr] lg:items-center">
               <div>
-                <h1 className="mt-5 font-serif text-5xl leading-[0.9] tracking-normal sm:text-7xl lg:text-9xl">
+                <h1 className="mb-8 font-serif text-5xl font-normal text-ink md:mb-10 md:text-7xl">
                   Projects
                 </h1>
               </div>
