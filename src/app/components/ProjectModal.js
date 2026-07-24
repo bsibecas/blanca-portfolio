@@ -7,13 +7,19 @@ import { ArrowUpRight, ChevronLeft, ChevronRight, Play, X } from 'lucide-react';
 const projectMedia = {
   'project-1': [
     '/assets/projects/share-to-go/app/cover.png',
-    '/assets/projects/share-to-go/app/detail.png',
+    '/assets/projects/share-to-go/app/phones-one.png',
+    '/assets/projects/share-to-go/app/phones-two.png',
+    '/assets/projects/share-to-go/app/phones-three.png',
+    '/assets/projects/share-to-go/app/video-demo.mp4',
   ],
   'project-1-web': [
     '/assets/projects/share-to-go/web/cover.png',
-    '/assets/projects/share-to-go/web/detail.png',
-    '/assets/projects/share-to-go/web/screenshot-01.png',
-    '/assets/projects/share-to-go/web/screenshot-02.png',
+    '/assets/projects/share-to-go/web/about.png',
+    '/assets/projects/share-to-go/web/dashboard.png',
+    '/assets/projects/share-to-go/web/home-record.mp4',
+    '/assets/projects/share-to-go/web/about-r4ecord.mp4',
+    '/assets/projects/share-to-go/web/companies-record.mp4',
+    '/assets/projects/share-to-go/web/dashboard-record.mp4',
   ],
   'project-2': [
     '/assets/projects/work-in-progress/cover.png',
@@ -48,10 +54,26 @@ const projectMedia = {
     '/assets/projects/runner/parallax.png',
     '/assets/projects/runner/demo.mp4',
   ],
+  'project-8': [
+    '/assets/projects/mobile-pos/cover.png',
+    '/assets/projects/mobile-pos/phones-one.png',
+    '/assets/projects/mobile-pos/phones-two.png',
+    '/assets/projects/mobile-pos/phones-three.png',
+    '/assets/projects/mobile-pos/phones-four.png',
+    '/assets/projects/mobile-pos/phones-five.png',
+  ],
+  'project-9': [
+    '/assets/projects/ai-music-generator/cover.png',
+  ],
+  'project-10': [
+    '/assets/projects/meteo/cover.png',
+    '/assets/projects/meteo/home.png',
+  ],
 };
 
 export default function ProjectModal({ project, onClose }) {
   const closeButtonRef = useRef(null);
+  const thumbnailRefs = useRef([]);
   const media = useMemo(() => {
     if (!project) return [];
     const fallbackMedia = [
@@ -71,6 +93,14 @@ export default function ProjectModal({ project, onClose }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    thumbnailRefs.current[activeMedia]?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center',
+    });
+  }, [activeMedia]);
 
   useEffect(() => {
     if (!project) return undefined;
@@ -108,7 +138,7 @@ export default function ProjectModal({ project, onClose }) {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/65 p-3 backdrop-blur-sm md:p-6"
+      className="fixed inset-0 z-[10000] flex items-center justify-center bg-ink/65 p-3 backdrop-blur-sm md:p-6"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}
@@ -124,7 +154,7 @@ export default function ProjectModal({ project, onClose }) {
           ref={closeButtonRef}
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 z-30 flex h-11 w-11 items-center justify-center rounded-[6px] border border-line bg-surface/90 text-ink transition-colors hover:border-accent hover:bg-accent hover:text-white md:right-5 md:top-5"
+          className="fixed right-4 top-[max(1rem,env(safe-area-inset-top))] z-30 flex h-11 w-11 items-center justify-center rounded-[6px] border border-line bg-surface/95 text-ink shadow-md transition-colors hover:border-accent hover:bg-accent hover:text-white md:absolute md:right-5 md:top-5"
           aria-label="Close project"
           title="Close"
         >
@@ -177,13 +207,16 @@ export default function ProjectModal({ project, onClose }) {
           </div>
 
           {media.length > 1 && (
-            <div className="mt-3 grid grid-cols-4 gap-2">
+            <div className="media-strip mt-3 flex max-w-full gap-2 overflow-x-auto overscroll-x-contain pb-1">
               {media.map((item, index) => (
                 <button
                   key={`${item.src}-${index}`}
+                  ref={(element) => {
+                    thumbnailRefs.current[index] = element;
+                  }}
                   type="button"
                   onClick={() => setActiveMedia(index)}
-                  className={`relative aspect-[16/9] overflow-hidden rounded-[4px] border bg-brand-wash transition-colors ${
+                  className={`relative aspect-[16/9] w-24 shrink-0 overflow-hidden rounded-[4px] border bg-brand-wash transition-colors sm:w-28 ${
                     activeMedia === index ? 'border-accent' : 'border-line hover:border-line-strong'
                   }`}
                   aria-label={item.type === 'video' ? 'Show project video' : `Show image ${index + 1}`}

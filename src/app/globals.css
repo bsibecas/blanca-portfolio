@@ -58,6 +58,14 @@ iframe {
   max-width: 100%;
 }
 
+.media-strip {
+  scrollbar-width: none;
+}
+
+.media-strip::-webkit-scrollbar {
+  display: none;
+}
+
 @media (max-width: 767px) {
   .hero-profile-window,
   .hero-skills-window {
