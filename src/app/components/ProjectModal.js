@@ -138,14 +138,14 @@ export default function ProjectModal({ project, onClose }) {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[10000] flex items-center justify-center bg-ink/65 p-3 backdrop-blur-sm md:p-6"
+      className="fixed inset-0 z-[10000] flex max-w-[100vw] items-center justify-center overflow-hidden bg-ink/65 p-3 backdrop-blur-sm md:p-6"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}
       role="presentation"
     >
       <section
-        className="relative grid max-h-[94vh] w-full max-w-[1400px] overflow-y-auto rounded-[8px] border border-line bg-surface shadow-2xl lg:h-[88vh] lg:grid-cols-[1.12fr_0.88fr] lg:overflow-hidden"
+        className="relative grid max-h-[94dvh] w-full min-w-0 max-w-[1400px] overflow-x-hidden overflow-y-auto rounded-[8px] border border-line bg-surface shadow-2xl lg:h-[88vh] lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:overflow-hidden"
         role="dialog"
         aria-modal="true"
         aria-labelledby="project-modal-title"
@@ -161,20 +161,20 @@ export default function ProjectModal({ project, onClose }) {
           <X size={23} aria-hidden="true" />
         </button>
 
-        <div className="flex min-h-[420px] flex-col border-b border-line bg-surface-muted/45 p-4 md:p-6 lg:min-h-0 lg:border-b-0 lg:border-r">
-          <div className="relative min-h-[340px] flex-1 overflow-hidden rounded-[6px] bg-brand-wash md:min-h-[480px]">
+        <div className="flex min-w-0 max-w-full flex-col border-b border-line bg-surface-muted/45 p-3 sm:p-4 md:p-6 lg:min-h-0 lg:border-b-0 lg:border-r">
+          <div className="relative h-[min(62vw,340px)] min-h-0 w-full min-w-0 shrink-0 overflow-hidden rounded-[6px] bg-brand-wash md:h-auto md:min-h-[480px] md:flex-1">
             {media[activeMedia]?.type === 'image' && (
               <img
                 src={media[activeMedia].src}
                 alt={`${project.projectName} view ${activeMedia + 1}`}
-                className="h-full w-full object-contain p-3 md:p-5"
+                className="block h-full max-h-full w-full max-w-full object-contain p-2 sm:p-3 md:p-5"
               />
             )}
 
             {media[activeMedia]?.type === 'video' && (
               <video
                 key={media[activeMedia].src}
-                className="h-full w-full object-contain"
+                className="block h-full max-h-full w-full max-w-full object-contain"
                 controls
                 autoPlay
                 playsInline
@@ -207,7 +207,7 @@ export default function ProjectModal({ project, onClose }) {
           </div>
 
           {media.length > 1 && (
-            <div className="media-strip mt-3 flex max-w-full gap-2 overflow-x-auto overscroll-x-contain pb-1">
+            <div className="media-strip mt-3 flex w-full min-w-0 max-w-full touch-pan-x gap-2 overflow-x-auto overscroll-x-contain pb-1">
               {media.map((item, index) => (
                 <button
                   key={`${item.src}-${index}`}
@@ -238,9 +238,9 @@ export default function ProjectModal({ project, onClose }) {
           )}
         </div>
 
-        <div className="px-6 py-8 md:px-10 md:py-10 lg:overflow-y-auto lg:px-12">
+        <div className="min-w-0 max-w-full overflow-x-hidden px-4 py-7 sm:px-6 md:px-10 md:py-10 lg:overflow-y-auto lg:px-12">
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">Project</p>
-          <h2 id="project-modal-title" className="mt-3 pr-14 font-serif text-4xl leading-none text-ink md:text-6xl">
+          <h2 id="project-modal-title" className="mt-3 break-words pr-14 font-serif text-4xl leading-none text-ink md:text-6xl">
             {project.projectName}
           </h2>
           <p className="mt-3 text-sm text-ink-muted">{project.projectDate}</p>
@@ -284,7 +284,7 @@ export default function ProjectModal({ project, onClose }) {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex h-11 items-center gap-2 rounded-[6px] bg-accent px-5 text-sm font-semibold text-white transition-colors hover:bg-brand-strong hover:!text-white hover:no-underline"
+              className="mt-8 inline-flex min-h-11 max-w-full items-center gap-2 break-words rounded-[6px] bg-accent px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-strong hover:!text-white hover:no-underline"
             >
               {project.urlReference || 'Visit project'}
               <ArrowUpRight size={17} aria-hidden="true" />

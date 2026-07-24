@@ -56,7 +56,7 @@ const About = () => {
           <link rel="icon" href="/assets/brand/favicon.ico" />
         </Head>
 
-        <main className="site-container mt-6 flex flex-1 flex-col justify-center text-left sm:mt-8">
+        <main className="site-container flex flex-1 flex-col pb-24 pt-12 text-left">
           {/* Título principal */}
           <h1 className="mb-8 font-serif text-5xl font-normal text-ink animate-section md:mb-10 md:text-7xl">
             About
@@ -79,9 +79,9 @@ const About = () => {
           </div>
 
           {/* CV viewer + Contacto */}
-          <div className="w-full h-full flex flex-col lg:flex-row justify-center items-center lg:items-start gap-8 animate-section">
+          <div className="grid h-full w-full min-w-0 gap-8 animate-section lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:items-start">
             {/* CV language selector + viewer */}
-            <div className="w-full lg:w-[45%]">
+            <div className="w-full min-w-0">
               <div
                 className="mb-3 inline-flex border border-line bg-surface-raised p-1"
                 role="group"
@@ -122,7 +122,7 @@ const About = () => {
             </div>
 
             {/* Botones y formulario */}
-            <div className="flex w-full flex-col items-stretch justify-center gap-6 lg:w-[40%] lg:items-center">
+            <div className="flex min-w-0 w-full flex-col items-stretch justify-center gap-6 lg:items-center">
               <p className="text-base text-center text-ink-muted">
                 Here is my CV for more information:
               </p>
