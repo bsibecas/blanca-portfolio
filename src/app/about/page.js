@@ -58,9 +58,6 @@ const About = () => {
 
         <main className="site-container mt-6 flex flex-1 flex-col justify-center text-left sm:mt-8">
           {/* Título principal */}
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-accent animate-section">
-            About
-          </p>
           <h1 className="mb-8 font-serif text-5xl font-normal text-ink animate-section md:mb-10 md:text-7xl">
             About
           </h1>

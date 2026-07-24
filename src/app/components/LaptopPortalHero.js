@@ -19,7 +19,7 @@ const skills = [
   'Next.js',
   'TypeScript',
   'Firebase',
-  'AI-assisted Development',
+  'AI',
 ];
 
 export default function LaptopPortalHero() {
